@@ -1,0 +1,103 @@
+u-boot-aw2501 (2018.07-9) unstable; urgency=medium
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 26 Sep 2025 07:13:00 +0000
+
+u-boot-aw2501 (2018.07-8) unstable; urgency=medium
+
+  [ Feng Zhang ]
+  * feat: a733: add ufs boot0 build support
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sun, 24 Aug 2025 12:29:38 +0000
+
+u-boot-aw2501 (2018.07-7) unstable; urgency=medium
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 20 Aug 2025 12:18:09 +0000
+
+u-boot-aw2501 (2018.07-6) unstable; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: update build dependencies
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 15 Aug 2025 12:59:37 +0000
+
+u-boot-aw2501 (2018.07-5) unstable; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: reduce SPI image size to 8M
+  * fix: add A733 setup scripts
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 05 Aug 2025 10:15:28 +0000
+
+u-boot-aw2501 (2018.07-4) unstable; urgency=medium
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 28 Jul 2025 10:20:48 +0000
+
+u-boot-aw2501 (2018.07-3) unstable; urgency=medium
+
+  [ Feng Zhang ]
+  * feat: use prebuilt allwinner boot0 firmware
+  * fix: update Makefile.local
+
+  [ ZHANG Yuntian ]
+  * fix: remove out dir before build
+  * refactor: update boot0 in final destination
+  * feat: support SPI boot
+  * feat: support building SPI image under Windows
+  * refactor: prepare for new SoC support
+  * fix: remove SoC suffix
+  * feat: allow testing setup.ps1 on Linux
+  * fix: remove unused build dependencies
+  * fix: update path for self-built boot0
+  * feat: support Cubie A7A and A7Z
+  * fix: GitHub Workflow compatible toolchain setup
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 25 Jul 2025 10:53:18 +0000
+
+u-boot-aw2501 (2018.07-2) unstable; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * feat: update to Allwinner SDK v1.4.6
+  * fix: sync device tree name with upstream
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 15 Jul 2025 10:27:43 +0000
+
+u-boot-aw2501 (2018.07-1) unstable; urgency=medium
+
+  [ "Radxa Computer Co., Ltd" ]
+  * Add initial Debian packaging support
+  * fix: ignore intermediate files
+  * fix: install U-Boot proper to UBOOT_BACKUP_START_SECTOR_IN_SDMMC
+  * chore: switch to public git repos
+  * fix: update arisc's commit
+  * fix: ignore warnings reported by GitHub Action's gcc
+
+  [ ZHANG Yuntian ]
+  * fix: ignore additioal lds files
+  * fix: set Tina native device tree location
+  * chore: update device submodule
+  * fix: correct typos
+  * fix: link device tree to upstream path
+  * feat: support distro boot
+  * feat: add custom configs
+  * chore: update devenv.lock
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 18 Jun 2025 09:53:23 +0000

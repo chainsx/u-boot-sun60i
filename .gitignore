@@ -1,0 +1,33 @@
+# Devenv
+/.devenv*
+/devenv.local.nix
+
+# direnv
+/.direnv
+
+# pre-commit
+/.pre-commit-config.yaml
+
+# Local VS Code configuration
+/.vscode*
+
+# Kernel build artifacts
+/*.deb
+/*.buildinfo
+/*.changes
+/.pc
+
+# Output folder
+/out
+
+# Symbolic link for Allwinner update_chip
+/monitor.fex
+
+# Build intermediate files
+/*.lds
+
+# Allwinner toolchain
+/*.tar.bz2
+/*.tar.gz
+/*.tar.xz
+/toolchains

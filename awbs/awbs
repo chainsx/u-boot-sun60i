@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+export LICHEE_TOP_DIR="$(mktemp -d)"
+export LICHEE_CHIP="${LICHEE_CHIP:-sun55iw3p1}"
+export LICHEE_KERN_DIR="${LICHEE_KERN_DIR:-$LICHEE_TOP_DIR}"
+export LICHEE_CHIP_CONFIG_DIR="${LICHEE_CHIP_CONFIG_DIR:-}"
+export LICHEE_IC="${LICHEE_IC:-a527}"
+export LICHEE_COMMON_CONFIG_DIR="${LICHEE_COMMON_CONFIG_DIR:-$LICHEE_TOP_DIR}"
+export LICHEE_PACK_OUT_DIR="${LICHEE_PACK_OUT_DIR:-$LICHEE_TOP_DIR}"
+export LICHEE_TOOLS_DIR="${LICHEE_TOOLS_DIR:-}"
+
+if [[ $LICHEE_CHIP_CONFIG_DIR == "" ]] || [[ $LICHEE_TOOLS_DIR == "" ]] ; then
+    echo "Please export LICHEE_CHIP_CONFIG_DIR and LICHEE_TOOLS_DIR before running $(basename $0)."
+    exit 1
+fi
+
+if [[ ! -f $LICHEE_CHIP_CONFIG_DIR/configs/default/default.awlic ]]; then
+    echo "LICHEE_CHIP_CONFIG_DIR must contain configs/default/default.awlic." >&2
+    exit 2
+fi
+
+if [[ ! -f $LICHEE_TOOLS_DIR/build/buildserver ]]; then
+    echo "LICHEE_TOOLS_DIR must contain build/buildserver." >&2
+    exit 2
+fi
+
+if [[ ! -f $LICHEE_TOOLS_DIR/build/allwinnerdst.awlic ]]; then
+    echo "LICHEE_TOOLS_DIR must contain build/allwinnerdst.awlic." >&2
+    exit 2
+fi
+
+ln -s "$(realpath "$LICHEE_TOOLS_DIR")" "$LICHEE_TOP_DIR/tools"
+mkdir -p "$LICHEE_TOP_DIR/out"
+cat << EOF > "$LICHEE_TOP_DIR/.buildconfig"
+export LICHEE_CHIP=$LICHEE_CHIP
+export LICHEE_KERN_DIR=$LICHEE_KERN_DIR
+export LICHEE_CHIP_CONFIG_DIR=$LICHEE_CHIP_CONFIG_DIR
+export LICHEE_IC=$LICHEE_IC
+export LICHEE_COMMON_CONFIG_DIR=$LICHEE_COMMON_CONFIG_DIR
+export LICHEE_PACK_OUT_DIR=$LICHEE_PACK_OUT_DIR
+EOF
+
+"$LICHEE_TOOLS_DIR/build/buildserver" --path "$LICHEE_TOP_DIR" &>/dev/null &
+
+while [[ ! -S $LICHEE_TOP_DIR/out/serversocket ]]; do
+    sleep 0
+done
+
+echo "$LICHEE_TOP_DIR"

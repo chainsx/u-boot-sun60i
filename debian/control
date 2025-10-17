@@ -1,0 +1,59 @@
+Source: u-boot-aw2501
+Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
+Section: admin
+Priority: standard
+Standards-Version: 4.6.0
+Build-Depends: debhelper (>=12~),
+               devscripts,
+               lintian,
+               dh-exec,
+               flex,
+               bison,
+               python3-setuptools,
+               swig,
+               python3-dev,
+               libgnutls28-dev,
+               python3-pyelftools,
+               libncurses-dev,
+               xxd,
+               bc,
+               lib32stdc++6 [amd64],
+               lib32z1 [amd64],
+               dos2unix,
+               gcc-arm-linux-gnueabi,
+               gdisk,
+
+Package: u-boot-aw2501
+Architecture: all
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+Description: U-Boot based on aw2501
+ This package provides the prebuilt U-Boot based on aw2501.
+
+Package: u-boot-radxa-cubie-a5e
+Architecture: all
+Depends: u-boot-aw2501,
+         ${misc:Depends},
+Section: admin
+Priority: optional
+Description: Radxa U-Boot meta-package for Radxa Cubie A5E.
+ This package provides the prebuilt U-Boot for Radxa Cubie A5E.
+
+Package: u-boot-radxa-cubie-a7a
+Architecture: all
+Depends: u-boot-aw2501,
+         ${misc:Depends},
+Section: admin
+Priority: optional
+Description: Radxa U-Boot meta-package for Radxa Cubie A7A.
+ This package provides the prebuilt U-Boot for Radxa Cubie A7A.
+
+Package: u-boot-radxa-cubie-a7z
+Architecture: all
+Depends: u-boot-aw2501,
+         ${misc:Depends},
+Section: admin
+Priority: optional
+Description: Radxa U-Boot meta-package for Radxa Cubie A7Z.
+ This package provides the prebuilt U-Boot for Radxa Cubie A7Z.
