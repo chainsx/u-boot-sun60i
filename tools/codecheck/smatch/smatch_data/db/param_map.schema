@@ -1,1 +1,0 @@
-CREATE TABLE param_map (file big int, to_from bool, fn_ptr varchar(80), parameter integer, source varchar(80));

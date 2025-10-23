@@ -1,1 +1,0 @@
-CREATE TABLE data_info (file big int, data varchar(80), type integer, value varchar(80));
